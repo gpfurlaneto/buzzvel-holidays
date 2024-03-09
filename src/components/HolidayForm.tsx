@@ -21,13 +21,15 @@ const holidayFormSchema = z.object({
 })
 
 interface HolidayFormProps {
+  defaultValues?: HolidayFormSchemaType
   handleSubmit: (values: HolidayFormSchemaType) => void
 }
 
-type HolidayFormSchemaType = z.infer<typeof holidayFormSchema>
+export type HolidayFormSchemaType = z.infer<typeof holidayFormSchema>
 
 export default function HolidayForm({
-  handleSubmit
+  handleSubmit,
+  defaultValues
 }: HolidayFormProps) {
   const { theme } = useTheme()
   const {
@@ -36,6 +38,7 @@ export default function HolidayForm({
     handleSubmit: onSubmit,
     formState: { errors, isSubmitting },
   } = useForm<HolidayFormSchemaType>({
+    defaultValues,
     resolver: zodResolver(holidayFormSchema),
   })
   const borderColor = theme === 'light' ? 'border-black' : 'border-white'

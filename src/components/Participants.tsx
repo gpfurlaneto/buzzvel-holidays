@@ -47,7 +47,7 @@ export default function Participants({ onChange, value }: ParticipantsProps) {
           <li key={participant} className="flex flex-row items-center gap-1">
             {participant}
             <button onClick={() => handleRemoveParticipant(participant)}>
-              <FontAwesomeIcon className="text-red-500 mx-2" icon={faClose} />
+              <FontAwesomeIcon width={14} className="text-red-500" icon={faClose} />
             </button>
           </li>
         ))}
