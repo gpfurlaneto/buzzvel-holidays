@@ -22,6 +22,7 @@ interface EditHolidayProps {
 export default function EditHoliday({ holiday }: EditHolidayProps) {
   return (
     <div className="flex flex-col w-full max-w-screen-md mx-auto">
+      Edit Holiday
       <HolidayForm defaultValues={holiday} handleSubmit={() => {}}/>
     </div>
   )
