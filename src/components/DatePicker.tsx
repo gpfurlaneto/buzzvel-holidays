@@ -1,5 +1,5 @@
-import { forwardRef } from "react"
-import Datepicker, { DatepickerType } from "react-tailwindcss-datepicker"
+import { forwardRef, useState } from "react"
+import Datepicker, { DateValueType, DatepickerType } from "react-tailwindcss-datepicker"
 
 export interface DatePickerProps extends DatepickerType {
   label?: string
@@ -17,6 +17,7 @@ export default forwardRef<HTMLInputElement, DatePickerProps>(function Input(
         inputClassName='bg-transparent outline-none border-b focus:border-red-600 w-full pl-2 pb-2'
         {...props}
       /> 
+      {error && <span className="text-red-500 text-sm ml-1">{error}</span>}
       </div>
   )
 })

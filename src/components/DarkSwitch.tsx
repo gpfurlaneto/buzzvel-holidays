@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
-const ThemeChanger = () => {
+export default function DarkSwitch() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -9,7 +9,6 @@ const ThemeChanger = () => {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
-console.log(theme)
   return (
     <div className="flex items-center">
       {theme === "light" ? (
@@ -49,5 +48,3 @@ console.log(theme)
     </div>
   );
 };
-
-export default ThemeChanger;

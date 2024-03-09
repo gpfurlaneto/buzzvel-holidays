@@ -1,19 +1,15 @@
-import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
-import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+export default function NavBar() {
   const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme()
 
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 
-  const linkClass = theme === 'dark' ? 'text-gray-300 focus:bg-gray-800' : 'text-gray-800'
-  
   return (
     <div className="w-full">
       <nav className="container relative flex flex-row items-center justify-between p-8 mx-auto lg:justify-between xl:px-0 max-w-screen-xl">
@@ -22,7 +18,7 @@ const Navbar = () => {
             <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
               <span>
                 <Image
-                  src="logo-light.svg"
+                  src="/logo-light.svg"
                   alt="N"
                   width="32"
                   height="32"
@@ -37,5 +33,3 @@ const Navbar = () => {
     </div>
   );
 }
-
-export default Navbar;
