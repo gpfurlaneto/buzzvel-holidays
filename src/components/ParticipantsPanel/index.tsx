@@ -2,11 +2,10 @@ import { MouseEvent, useRef, useState } from "react";
 import Input from "../Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "next-themes";
 import Button from "../Button";
 
 interface ParticipantsPanelProps {
-  value: string [] | null
+  value: string[] | null
   onChange: (value: string[]) => void
 }
 
@@ -14,12 +13,12 @@ export default function ParticipantsPanel({ onChange, value }: ParticipantsPanel
 
   const inpurRef = useRef<HTMLInputElement | null>(null)
   const [participants, setParticipants] = useState<string[]>(value ?? [])
-  
+
   const handleAddParticipant = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
 
     const participant = inpurRef.current?.value?.trim()
-    if(participant) {
+    if (participant) {
       const newValue = [...participants, participant]
       setParticipants(newValue)
       // @ts-ignore (us this comment if typescript raises an error)
@@ -36,9 +35,9 @@ export default function ParticipantsPanel({ onChange, value }: ParticipantsPanel
 
   return (
     <div className="flex flex-col items-end gap-2 w-full">
-      <div className="flex flex-row items-end gap-2 w-full">
+      <div className="flex flex-col sm:flex-row items-end gap-2 w-full">
         <Input ref={inpurRef} placeholder="Participant Name" />
-        <Button variant='neutral' className='min-w-fit px-3 py-1 h-fit' onClick={handleAddParticipant}>
+        <Button variant='neutral' className='min-w-fit px-3 py-1 w-full sm:w-fit h-full' onClick={handleAddParticipant}>
           Add Participant
         </Button>
       </div>

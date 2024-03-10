@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 
 let holidays: Holiday[] = [
   {
-    id: '1',
+    _id: '1',
     title: 'Title 1',
     description: 'Description 1',
     date: new Date().toISOString(),
@@ -15,7 +15,7 @@ let holidays: Holiday[] = [
     location: 'aaaaaaaaaaaaa'
   },
   {
-    id: '2',
+    _id: '2',
     title: 'Title 2',
     description: 'Description 2',
     date: new Date().toISOString(),
@@ -24,26 +24,25 @@ let holidays: Holiday[] = [
   }
 ]
 async function createHoliday(holiday: Holiday): Promise<void> {
-  holidays.push(holiday)
+  await axiosInstance.post('/holidays', holiday)
 }
 
 async function updateHoliday(id: string, holidayToEdit: Holiday): Promise<void> {
-  holidays = holidays.filter(holiday => holiday.id !== id)
-  holidays.push({
-    ...holidayToEdit,
-    id
-  })
+  await axiosInstance.put(`/holidays/${id}`, holidayToEdit)
 }
 
 async function loadHoliday(holidayId: string): Promise<Holiday> {
-  return holidays.find(holiday => holiday.id === holidayId) as Holiday
+  const { data } = await axiosInstance.get(`/holidays/${holidayId}`)
+  return data
 }
+
 async function deleteHoliday(holidayId: string): Promise<void> {
-  holidays = holidays.filter(holiday => holiday.id !== holidayId)
+  await axiosInstance.delete(`/holidays/${holidayId}`)
 }
 
 async function listAllHolidays(): Promise<Holiday[]> {
-  return holidays
+  const response = await axiosInstance.get('/holidays')
+  return response.data
 }
 
 const api = { 

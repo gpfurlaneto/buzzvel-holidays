@@ -3,11 +3,11 @@ import { userEvent } from '@testing-library/user-event'
 import HolidayCard from "."
 import dayjs from "dayjs";
 
-test('Should render component correctly', async() => {
+test('Should render component correctly', async () => {
   const date = new Date().toISOString()
   const deleteFn = jest.fn()
   const holiday = {
-    id: '1',
+    _id: '1',
     title: 'Name of Holiday',
     description: 'Some description here',
     location: 'Details about location',
@@ -19,15 +19,15 @@ test('Should render component correctly', async() => {
   expect(getByText('Name of Holiday')).toBeInTheDocument()
   expect(getByText(dayjs(date).format('MM/DD/YYYY'))).toBeInTheDocument()
   expect(getByText('Details about location')).toBeInTheDocument()
-  
+
 })
 
 
-test('Should show/hide details', async() => {
+test('Should show/hide details', async () => {
   const date = new Date().toISOString()
   const deleteFn = jest.fn()
   const holiday = {
-    id: '1',
+    _id: '1',
     title: 'Name of Holiday',
     description: 'Some description here',
     location: 'Details about location',
@@ -36,7 +36,7 @@ test('Should show/hide details', async() => {
   }
   const { getByText, getByRole, queryByText } = render(<HolidayCard handleDelete={deleteFn} holiday={holiday} />)
 
-  const buttonShowDetails = getByRole('button', { name: 'See details'})
+  const buttonShowDetails = getByRole('button', { name: 'See details' })
   await userEvent.click(buttonShowDetails)
 
   await waitFor(() => {
@@ -51,7 +51,7 @@ test('Should show/hide details', async() => {
     expect(getByText('bbbbb')).toBeInTheDocument()
   })
 
-  const buttonHideDetails = getByRole('button', { name: 'Hide details'})
+  const buttonHideDetails = getByRole('button', { name: 'Hide details' })
   await userEvent.click(buttonHideDetails)
 
   await waitFor(() => {
@@ -68,11 +68,11 @@ test('Should show/hide details', async() => {
 })
 
 
-test('Should call delete', async() => {
+test('Should call delete', async () => {
   const date = new Date().toISOString()
   const deleteFn = jest.fn()
   const holiday = {
-    id: '1',
+    _id: '1',
     title: 'Name of Holiday',
     description: 'Some description here',
     location: 'Details about location',
@@ -81,7 +81,7 @@ test('Should call delete', async() => {
   }
   const { getByText, getByRole } = render(<HolidayCard handleDelete={deleteFn} holiday={holiday} />)
 
-  const buttonDelete = getByRole('button', { name: 'Delete'})
+  const buttonDelete = getByRole('button', { name: 'Delete' })
   await userEvent.click(buttonDelete)
 
   expect(deleteFn).toHaveBeenCalledWith(holiday)

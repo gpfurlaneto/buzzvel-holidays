@@ -5,8 +5,8 @@ import { GetServerSidePropsContext } from "next"
 import { useRouter } from "next/router"
 
 export const getServerSideProps = (async (ctx: GetServerSidePropsContext) => {
-  const holiday = await api.loadHoliday(ctx?.params?.id as string) 
- 
+  const holiday = await api.loadHoliday(ctx?.params?.id as string)
+
   return { props: { holiday } }
 })
 
@@ -23,7 +23,7 @@ export default function EditHoliday({ holiday }: EditHolidayProps) {
   }
 
   const handleSubmit = async (value: HolidayFormSchemaType): Promise<void> => {
-    await api.updateHoliday(holiday.id as string, {
+    await api.updateHoliday(holiday._id as string, {
       ...value,
       date: value?.date?.toISOString()
     })
@@ -34,7 +34,7 @@ export default function EditHoliday({ holiday }: EditHolidayProps) {
   return (
     <div className="flex flex-col w-full">
       Edit Holiday
-      <HolidayForm defaultValues={defaultValue} handleSubmit={handleSubmit}/>
+      <HolidayForm defaultValues={defaultValue} handleSubmit={handleSubmit} />
     </div>
   )
 }

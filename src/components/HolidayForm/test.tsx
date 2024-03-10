@@ -10,22 +10,22 @@ test('Should render component correctly', () => {
     participants: ['aaaaa', 'bbbbb'],
     location: 'Location of holiday'
   }
-  
+
   const { getByRole, getByText } = render(
-    <HolidayForm 
-      handleSubmit={async () => {}} 
+    <HolidayForm
+      handleSubmit={async () => { }}
       defaultValues={defaultValues}
     />
   )
 
-  expect(getByRole('textbox', { name: 'title'})).toBeInTheDocument()
-  expect(getByRole('textbox', { name: 'description'})).toBeInTheDocument()
-  expect(getByRole('textbox', { name: 'date'})).toBeInTheDocument()
-  expect(getByRole('textbox', { name: 'location'})).toBeInTheDocument()
+  expect(getByRole('textbox', { name: 'title' })).toBeInTheDocument()
+  expect(getByRole('textbox', { name: 'description' })).toBeInTheDocument()
+  expect(getByRole('textbox', { name: 'date' })).toBeInTheDocument()
+  expect(getByRole('textbox', { name: 'location' })).toBeInTheDocument()
   expect(getByText('aaaaa')).toBeInTheDocument()
   expect(getByText('bbbbb')).toBeInTheDocument()
-  expect(getByRole('button', { name: 'Submit'})).toBeInTheDocument()
-  expect(getByRole('link', { name: 'Cancel'})).toBeInTheDocument()
+  expect(getByRole('button', { name: 'Submit' })).toBeInTheDocument()
+  expect(getByRole('link', { name: 'Cancel' })).toBeInTheDocument()
 })
 
 test('Should call handleSubmit', async () => {
@@ -36,16 +36,16 @@ test('Should call handleSubmit', async () => {
     participants: ['aaaaa', 'bbbbb'],
     location: 'Location of holiday'
   }
-  
+
   const handleSubmit = jest.fn()
   const { getByRole } = render(
-    <HolidayForm 
-      handleSubmit={handleSubmit} 
+    <HolidayForm
+      handleSubmit={handleSubmit}
       defaultValues={defaultValues}
     />
   )
-  
-  const submit = getByRole('button', { name: 'Submit'})
+
+  const submit = getByRole('button', { name: 'Submit' })
   await userEvent.click(submit)
   expect(handleSubmit).toHaveBeenCalledWith(defaultValues)
 })
@@ -53,16 +53,16 @@ test('Should call handleSubmit', async () => {
 test('Should display validation errors', async () => {
   const handleSubmit = jest.fn()
   const { getByRole, getByText } = render(
-    <HolidayForm 
-      handleSubmit={handleSubmit} 
+    <HolidayForm
+      handleSubmit={handleSubmit}
     />
   )
-  
-  const submit = getByRole('button', { name: 'Submit'})
+
+  const submit = getByRole('button', { name: 'Submit' })
   await userEvent.click(submit)
-  
-  expect(getByRole('alert', { name: 'Title is required'})).toBeInTheDocument()
-  expect(getByRole('alert', { name: 'Description is required'})).toBeInTheDocument()
-  expect(getByRole('alert', { name: 'Date is required'})).toBeInTheDocument()
-  expect(getByRole('alert', { name: 'Location is required'})).toBeInTheDocument()
+
+  expect(getByRole('alert', { name: 'Title is required' })).toBeInTheDocument()
+  expect(getByRole('alert', { name: 'Description is required' })).toBeInTheDocument()
+  expect(getByRole('alert', { name: 'Date is required' })).toBeInTheDocument()
+  expect(getByRole('alert', { name: 'Location is required' })).toBeInTheDocument()
 })

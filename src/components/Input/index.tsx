@@ -16,4 +16,3 @@ export default forwardRef<HTMLInputElement, InputProps>(function Input(
     </div>
   )
 })
-  

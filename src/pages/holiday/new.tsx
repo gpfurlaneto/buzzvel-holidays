@@ -16,7 +16,7 @@ export default function NewHoliday(): ReactElement {
   return (
     <div className="flex flex-col w-full">
       New Holiday
-      <HolidayForm handleSubmit={handleSubmit}/>
+      <HolidayForm handleSubmit={handleSubmit} />
     </div>
   )
 }

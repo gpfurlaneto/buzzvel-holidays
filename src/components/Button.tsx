@@ -2,11 +2,12 @@ import { useTheme } from "next-themes"
 import Link from "next/link"
 import { ReactNode } from "react"
 
- interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
+interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
   className?: string
   variant: 'primary' | 'secondary' | 'neutral'
   href?: string
-  children: string | ReactNode
+  children: string | ReactNode,
+  disabled?: boolean
 }
 
 const hoverClassNames = {
@@ -19,7 +20,7 @@ const hoverClassNames = {
 }
 
 function getNeutralHoverClass(theme: string | undefined) {
-  if(theme === 'light') {
+  if (theme === 'light') {
     return hoverClassNames.neutral.light
   }
 
@@ -35,13 +36,13 @@ export default function Button({
 }: ButtonProps) {
   const { theme } = useTheme()
   const borderColor = theme === 'light' ? 'border-black' : 'border-white'
-  const hoverClass = variant === 'neutral' ? getNeutralHoverClass(theme): hoverClassNames[variant]
-  const classNameValue = `border rounded px-10 p-2 ${borderColor} ${hoverClass} ${className ?? ''}`
-  
-  if(href) {
+  const hoverClass = variant === 'neutral' ? getNeutralHoverClass(theme) : hoverClassNames[variant]
+  const classNameValue = `border rounded px-10 p-2 text-center ${borderColor} ${hoverClass} ${className ?? ''}`
+
+  if (href) {
     return <Link className={classNameValue} href={href} >{children}</Link>
   }
-  
+
   return (
     <button className={classNameValue} {...props}>{children}</button>
   )

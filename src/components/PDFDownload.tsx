@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { PDFDownloadLink, Document, Page, View, Text,  } from '@react-pdf/renderer';
+import { PDFDownloadLink, Document, Page, View, Text, } from '@react-pdf/renderer';
 import dayjs from "dayjs";
 import { Holiday } from "@/types/Holiday";
 
@@ -13,8 +13,8 @@ export function PDFDownload({ holidays }: PDFDownloadProps) {
       <Page>
         <View style={{ display: 'flex', flexDirection: 'column', gap: 30, margin: 10, fontSize: 14, width: '100%' }}>
           {holidays.map(holiday => (
-            <View key={holiday.id} style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
-              <View style={{ display: 'flex', flexDirection: 'row', width: '100%'}}>
+            <View key={holiday._id} style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
+              <View style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
                 <Text>Title: {holiday.title}</Text>
                 <Text style={{ marginLeft: 'auto', marginRight: 10, paddingRight: 10 }}>Date: {dayjs(holiday.date).format('MM/DD/YYYY')}</Text>
               </View>
