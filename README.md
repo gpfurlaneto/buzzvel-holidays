@@ -46,3 +46,5 @@ Here are all the projeject dependencies:
 - To finish, create tests for ConfirmationDialog. Due to the time required for researching how to test components of Headless UI, it hasn't been implemented yet.
 - To fix tests for HomePage (pages/index.tsx): The PDF library doesn't seem to work well in the test environment. The test is functioning properly, although it throws an error due to a dependency that is not present during the tests.
 - To deploy the application, both back end and front end;
+- To setup eslint;
+- To setup git actions to garantee the code quality, validating the code and running tests.
