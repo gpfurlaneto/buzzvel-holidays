@@ -12,10 +12,7 @@ import Button from "./Button";
 const holidayFormSchema = z.object({
   title: z.string().min(5, 'Title is required'),
   description: z.string().min(5, 'Title is required'),
-  date: z.object({
-    startDate: z.coerce.date(),
-    endDate: z.coerce.date(),
-  }).required(),
+  date: z.coerce.date(),
   participants: z.array(z.string()),
   location: z.string().min(5, 'Location is required'),
 })
@@ -31,7 +28,6 @@ export default function HolidayForm({
   handleSubmit: submit,
   defaultValues
 }: HolidayFormProps) {
-  const { theme } = useTheme()
   const {
     control,
     register,
@@ -42,7 +38,6 @@ export default function HolidayForm({
     resolver: zodResolver(holidayFormSchema),
   })
 
-  console.log(errors)
   const handleSubmit = async (values: HolidayFormSchemaType): Promise<void> => {
     await submit(values)
   }
@@ -55,7 +50,7 @@ export default function HolidayForm({
         control={control}
         name="date"
         render={({ field: { onChange, value } }) => (
-          <DatePicker placeholder="Date" onChange={onChange} value={value} minDate={new Date()} error={errors.date?.message ? 'Date is required' : ''}/>
+          <DatePicker placeholder="Date" onChange={onChange} value={value?.toLocaleDateString()} error={errors.date?.message ? 'Date is required' : ''}/>
         )}
       />
       <Input placeholder="Location" {...register('location')} error={errors.location?.message}/>

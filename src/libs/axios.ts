@@ -34,7 +34,6 @@ export async function createHoliday(holiday: Holiday): Promise<void> {
 }
 
 export async function updateHoliday(id: string, holidayToEdit: Holiday): Promise<void> {
-  console.log(id, holidayToEdit)
   holidays = holidays.filter(holiday => holiday.id !== id)
   holidays.push({
     ...holidayToEdit,
@@ -47,7 +46,6 @@ export async function loadHoliday(holidayId: string): Promise<Holiday> {
 }
 export async function deleteHoliday(holidayId: string): Promise<void> {
   holidays = holidays.filter(holiday => holiday.id !== holidayId)
-  console.log(holidays)
 }
 
 export async function listAllHolidays(): Promise<Holiday[]> {
