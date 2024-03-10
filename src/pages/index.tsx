@@ -50,7 +50,7 @@ export default function Home({ holidays }: HomeProps) {
         <h1>Holidays</h1>
         <Button variant="primary" href="/holiday/new">Create Holiday</Button>
       </div>
-      {initiated && <div className="ml-auto w-fit mt-2"><PDFDownload holidays={allHolidays} /></div>}
+      {initiated && allHolidays.length > 0 && <div className="ml-auto w-fit mt-2"><PDFDownload holidays={allHolidays} /></div>}
       <div className="flex flex-col gap-4 mt-8">
         {allHolidays.map(holiday => (
           <HolidayCard key={holiday._id} holiday={holiday} handleDelete={handleDelete} />

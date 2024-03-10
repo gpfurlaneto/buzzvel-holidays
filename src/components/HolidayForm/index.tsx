@@ -8,8 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../Button";
 
 const holidayFormSchema = z.object({
-  title: z.string().min(5, 'Title is required'),
-  description: z.string().min(5, 'Description is required'),
+  title: z.string().min(1, 'Title is required'),
+  description: z.string().min(1, 'Description is required'),
   date: z.date({ required_error: 'Date is required' }),
   participants: z.array(z.string()).nullable().optional(),
   location: z.string().min(5, 'Location is required'),
