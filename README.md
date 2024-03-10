@@ -6,7 +6,7 @@
 
 This is Buzzvel - Holidays: is a user-friendly interface to perform create and to manage operations on holiday plans. This is the frontend project built using [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-
+[Here you can see a video with a short explanation about how to run the application.](https://www.loom.com/share/db88db208d954fb6832d96be5ebae514?sid=81bbe36b-d64d-400a-85e1-ee7880c4e1d5)
 
 ## Contents
 
