@@ -22,13 +22,13 @@ const holidayFormSchema = z.object({
 
 interface HolidayFormProps {
   defaultValues?: HolidayFormSchemaType
-  handleSubmit: (values: HolidayFormSchemaType) => void
+  handleSubmit: (values: HolidayFormSchemaType) => Promise<void>
 }
 
 export type HolidayFormSchemaType = z.infer<typeof holidayFormSchema>
 
 export default function HolidayForm({
-  handleSubmit,
+  handleSubmit: submit,
   defaultValues
 }: HolidayFormProps) {
   const { theme } = useTheme()
@@ -41,7 +41,12 @@ export default function HolidayForm({
     defaultValues,
     resolver: zodResolver(holidayFormSchema),
   })
-  const borderColor = theme === 'light' ? 'border-black' : 'border-white'
+
+  console.log(errors)
+  const handleSubmit = async (values: HolidayFormSchemaType): Promise<void> => {
+    await submit(values)
+  }
+  
   return (
     <form onSubmit={onSubmit(handleSubmit)} className="flex flex-col gap-2 w-full" >
       <Input placeholder="Title" {...register('title')} error={errors.title?.message}/>
@@ -63,7 +68,7 @@ export default function HolidayForm({
       />
       <div className="flex flex-row gap-2 ml-auto">
       <Button variant='secondary' href="/" className="px-10 p-2 mt-4 w-fit">Cancel</Button>
-      <Button variant='primary' className='rounded px-10 p-2 mt-4 w-fit'>Submit</Button>
+      <Button variant='primary' disabled={isSubmitting} className='rounded px-10 p-2 mt-4 w-fit'>Submit</Button>
       </div>
     </form>
   )

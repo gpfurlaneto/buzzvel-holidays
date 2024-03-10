@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
       <Navbar />
 
       <div className="w-full">
-        <div className="max-w-screen-xl mx-auto px-8">
+        <div className="max-w-screen-md mx-auto px-8">
           {children}
         </div>
       </div>
