@@ -1,40 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://github.com/gpfurlaneto/buzzvel-holidays-app/blob/main/public/logo-light.svg">
 
-## Getting Started
+**Frontend - APP**
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is Buzzvel - Holidays: is a user-friendly interface to perform create and to manage operations on holiday plans. This is the frontend project built using [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contents
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [Tests](#tests)
+- [TODO](#todo)
 
-## Learn More
+## Requirements
+Buzzvel - Holidays is built in two repositories, api (backend) and app (frontend). So in order to make the app to work, we must first of all to run the backend app, which can be found [here](https://github.com/gpfurlaneto/buzzvel-holidays-app/).
 
-To learn more about Next.js, take a look at the following resources:
+Here are all the projeject dependencies:
+    
+- [Backend API](https://github.com/gpfurlaneto/buzzvel-holidays-api)
+- [NodeJs](https://nodejs.org)
+- [ReactJS](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Setup
 
-## Deploy on Vercel
+1 - Setup the api (backend) following the instructions [here](https://github.com/gpfurlaneto/buzzvel-holidays-app/), and then come back to the step 2 of this setup.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2 - Install the libraries dependencies with the command:
+```npm install```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3 - Copy `enc.example` file with the name `.env`, this files has the base url for the api.
+
+4 - Run the command `npm run dev` and then open the app in the url: [http://localhost:3000](http://localhost:3000)
+
+
+## Tests
+- `npm run test`
+
+
+## TODO
+- To finish, create tests for ConfirmationDialog. Due to the time required for researching how to test components of Headless UI, it hasn't been implemented yet.
+- To fix tests for HomePage (pages/index.tsx): The PDF library doesn't seem to work well in the test environment. The test is functioning properly, although it throws an error due to a dependency that is not present during the tests.
+- To deploy the application, both back end and front end;
+- To setup prettier/eslint;
+- To setup git actions to ensure the code quality, validating the code and running tests.
