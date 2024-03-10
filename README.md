@@ -1,7 +1,7 @@
 <img src="https://github.com/gpfurlaneto/buzzvel-holidays-app/blob/main/public/logo-light.svg">
 
 
-This is Buzzvel - Holidays: is a user-friendly interface to perform create and to manage operations on holiday plans. And this is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is Buzzvel - Holidays: is a user-friendly interface to perform create and to manage operations on holiday plans. This is the frontend project built using [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
 
