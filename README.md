@@ -19,7 +19,7 @@ Here are all the projeject dependencies:
 - [Backend API](https://github.com/gpfurlaneto/buzzvel-holidays-api)
 - [NodeJs](https://nodejs.org)
 - [ReactJS](https://reactjs.org/)
-- [NextJS](https://graphql.org/](https://nextjs.org/))
+- [NextJS](https://nextjs.org/)
 
 
 ## Setup
