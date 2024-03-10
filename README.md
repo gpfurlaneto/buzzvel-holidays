@@ -13,7 +13,7 @@ This is Buzzvel - Holidays: is a user-friendly interface to perform create and t
 - [TODO](#todo)
 
 ## Requirements
-Buzzvel - Holidays is built in two repositories, api (backend) and app (frontend). So in order to make the app to work, we must first of all to run the backend app, which can be found here.
+Buzzvel - Holidays is built in two repositories, api (backend) and app (frontend). So in order to make the app to work, we must first of all to run the backend app, which can be found [here](https://github.com/gpfurlaneto/buzzvel-holidays-app/).
 
 Here are all the projeject dependencies:
     
@@ -25,7 +25,7 @@ Here are all the projeject dependencies:
 
 ## Setup
 
-1 - Setup the api following the instructions here, and then come back to the step 2 of this setup.
+1 - Setup the api (backend) following the instructions [here](https://github.com/gpfurlaneto/buzzvel-holidays-app/), and then come back to the step 2 of this setup.
 
 2 - Install the libraries dependencies with the command:
 ```npm install```
