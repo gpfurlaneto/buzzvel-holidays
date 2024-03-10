@@ -1,6 +1,6 @@
 <img src="https://github.com/gpfurlaneto/buzzvel-holidays-app/blob/main/public/logo-light.svg">
 
-**Frontend APP**
+**Frontend - APP**
 
 
 
