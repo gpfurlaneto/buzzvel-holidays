@@ -10,10 +10,10 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <main className="flex flex-col gap-10">
       <Head>
-        <title>Nextly - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>Buzzvel - Holidays</title>
         <meta
           name="description"
-          content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+          content="Buzzvel - Holidays, is a user-friendly interface to perform create and to manage operations on holiday plans."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
