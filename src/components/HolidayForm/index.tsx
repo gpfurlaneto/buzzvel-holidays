@@ -1,19 +1,17 @@
 import { Controller, useForm } from "react-hook-form";
-import DatePicker from "./DatePicker";
-import Input from "./Input";
-import Participants from "./Participants";
-import TextArea from "./TextArea";
+import DatePicker from "../DatePicker";
+import Input from "../Input";
+import Participants from "../ParticipantsPanel";
+import TextArea from "../TestArea";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useTheme } from "next-themes";
-import Button from "./Button";
+import Button from "../Button";
 
 const holidayFormSchema = z.object({
   title: z.string().min(5, 'Title is required'),
-  description: z.string().min(5, 'Title is required'),
-  date: z.coerce.date(),
-  participants: z.array(z.string()),
+  description: z.string().min(5, 'Description is required'),
+  date: z.date({ required_error: 'Date is required'}),
+  participants: z.array(z.string()).nullable().optional(),
   location: z.string().min(5, 'Location is required'),
 })
 
@@ -44,16 +42,16 @@ export default function HolidayForm({
   
   return (
     <form onSubmit={onSubmit(handleSubmit)} className="flex flex-col gap-2 w-full" >
-      <Input placeholder="Title" {...register('title')} error={errors.title?.message}/>
-      <TextArea placeholder="Description" {...register('description')} error={errors.description?.message}/>
+      <Input aria-label='title' placeholder="Title" {...register('title')} error={errors.title?.message}/>
+      <TextArea aria-label='description' placeholder="Description" {...register('description')} error={errors.description?.message}/>
       <Controller
         control={control}
         name="date"
         render={({ field: { onChange, value } }) => (
-          <DatePicker placeholder="Date" onChange={onChange} value={value?.toLocaleDateString()} error={errors.date?.message ? 'Date is required' : ''}/>
+          <DatePicker id='date' aria-label="date" placeholder="Date" onChange={onChange} value={value?.toLocaleDateString()} error={errors.date?.message}/>
         )}
       />
-      <Input placeholder="Location" {...register('location')} error={errors.location?.message}/>
+      <Input aria-label='location' placeholder="Location" {...register('location')} error={errors.location?.message}/>
       <Controller
         control={control}
         name="participants"

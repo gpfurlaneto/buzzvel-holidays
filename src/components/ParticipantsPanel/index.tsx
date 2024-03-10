@@ -1,16 +1,16 @@
 import { MouseEvent, useRef, useState } from "react";
-import Input from "./Input";
+import Input from "../Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "next-themes";
-import Button from "./Button";
+import Button from "../Button";
 
-interface ParticipantsProps {
+interface ParticipantsPanelProps {
   value: string [] | null
   onChange: (value: string[]) => void
 }
 
-export default function Participants({ onChange, value }: ParticipantsProps) {
+export default function ParticipantsPanel({ onChange, value }: ParticipantsPanelProps) {
 
   const inpurRef = useRef<HTMLInputElement | null>(null)
   const [participants, setParticipants] = useState<string[]>(value ?? [])
@@ -46,7 +46,7 @@ export default function Participants({ onChange, value }: ParticipantsProps) {
         {participants.map(participant => (
           <li key={participant} className="flex flex-row items-center gap-1">
             {participant}
-            <button onClick={() => handleRemoveParticipant(participant)}>
+            <button aria-label={`Delete participant ${participant}`} onClick={() => handleRemoveParticipant(participant)}>
               <FontAwesomeIcon width={14} className="text-red-500" icon={faClose} />
             </button>
           </li>

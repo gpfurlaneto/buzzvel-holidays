@@ -14,7 +14,7 @@ export default forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
       <textarea id={id} className={classnames(
         'bg-transparent outline-none border-b focus:border-red-600 w-full h-9 focus:h-24 pl-2 pb-2',
         className)} ref={ref} {...props} />
-      {error && <span className="text-red-500 text-sm ml-1">{error}</span>}
+      {error && <span role='alert' aria-label={error} className="text-red-500 text-sm ml-1">{error}</span>}
     </div>
   )
 })

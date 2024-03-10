@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment } from "react"
-import Button from "./Button"
+import Button from "../Button"
 import { useTheme } from "next-themes"
 
 interface ConfirmationDialogProps {

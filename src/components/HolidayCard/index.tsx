@@ -30,9 +30,7 @@ export default function HolidayCard({ holiday, handleDelete: onDelete}: HolidayC
         <div className="flex flex-row justify-between w-full">
           <span>{holiday.title}</span>
           <span>
-          {dayjs(holiday.date.startDate).format('MM/DD/YYYY')}
-          {' - '}
-          {dayjs(holiday.date.endDate).format('MM/DD/YYYY')}
+            {dayjs(holiday.date).format('MM/DD/YYYY')}
           </span>
         </div>
         <div className="flex flex-row justify-between w-full">

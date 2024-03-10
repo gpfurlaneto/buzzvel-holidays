@@ -3,10 +3,10 @@ import HolidayCard from "@/components/HolidayCard";
 import { Holiday } from "@/types/Holiday";
 import Button from "@/components/Button";
 import ConfirmationDialog from "@/components/ConfirmationDialog";
-import { deleteHoliday, listAllHolidays } from "@/libs/axios";
+import api from "@/libs/axios";
 
 export const getServerSideProps = (async () => {
-  return { props: { holidays: await listAllHolidays() } }
+  return { props: { holidays: await api.listAllHolidays() } }
 })
 
 interface HomeProps {
@@ -22,7 +22,7 @@ export default function Home({ holidays }: HomeProps) {
   }
 
   const handleConfirmDelete = async () => {
-    await deleteHoliday(holidayToDelete?.id as string)
+    await api.deleteHoliday(holidayToDelete?.id as string)
     setAllHolidays(prev => prev.filter(item => item.id !== holidayToDelete?.id))
     setHolidayToDelete(null)
   }

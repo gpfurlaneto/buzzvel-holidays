@@ -1,17 +1,14 @@
 import HolidayForm, { HolidayFormSchemaType } from "@/components/HolidayForm";
-import { createHoliday } from "@/libs/axios";
+import api from "@/libs/axios";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 
 export default function NewHoliday(): ReactElement {
   const router = useRouter()
   const handleSubmit = async (value: HolidayFormSchemaType): Promise<void> => {
-    await createHoliday({
+    await api.createHoliday({
       ...value,
-      date: {
-        startDate: value?.date?.startDate?.toISOString(),
-        endDate: value?.date?.endDate?.toISOString()
-      }
+      date: value.date.toISOString(),
     })
     router.push('/')
   }
