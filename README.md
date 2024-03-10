@@ -10,6 +10,7 @@ This is Buzzvel - Holidays: is a user-friendly interface to perform create and t
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Tests](#tests)
+- [TODO](#todo)
 
 ## Requirements
 Buzzvel - Holidays is built in two repositories, api (backend) and app (frontend). So in order to make the app to work, we must first of all to run the backend app, which can be found here.
@@ -36,3 +37,9 @@ Here are all the projeject dependencies:
 
 ## Tests
 - `npm run test`
+
+
+## TODO
+- To finish, create tests for ConfirmationDialog. Due to the time required for researching how to test components of Headless UI, it hasn't been implemented yet.
+- To fix tests for HomePage (pages/index.tsx): The PDF library doesn't seem to work well in the test environment. The test is functioning properly, although it throws an error due to a dependency that is not present during the tests.
+- To deploy the application, both back end and front end;
