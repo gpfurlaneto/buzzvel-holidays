@@ -2,28 +2,11 @@ import { Holiday } from "@/types/Holiday";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.API_URL
+  baseURL: process.env.NEXT_PUBLIC_API_URL
 });
 
-let holidays: Holiday[] = [
-  {
-    _id: '1',
-    title: 'Title 1',
-    description: 'Description 1',
-    date: new Date().toISOString(),
-    participants: ['aaaaa', 'bbbbb'],
-    location: 'aaaaaaaaaaaaa'
-  },
-  {
-    _id: '2',
-    title: 'Title 2',
-    description: 'Description 2',
-    date: new Date().toISOString(),
-    participants: ['ccccc', 'ddddd'],
-    location: 'eeeeeeeeeeeeeee'
-  }
-]
 async function createHoliday(holiday: Holiday): Promise<void> {
+  console.log(axiosInstance)
   await axiosInstance.post('/holidays', holiday)
 }
 
